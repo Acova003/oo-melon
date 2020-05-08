@@ -39,10 +39,10 @@ class InternationalMelonOrder(AbstractMelonOrder):
         return self.country_code
 
 class GovernmentMelonOrder(AbstractMelonOrder):
-    def __init__(self, species, qty, passed_inpection):
-        super().__init__(species, qty, False, 'domestic', 0, False)
+    def __init__(self, species, qty):
+        super().__init__(species, qty,'domestic', 0.00)
 
-    def mark_inspection(self):
+    def mark_inspection(self, passed):
         """Record the fact than an order has been shipped."""
 
-        self.passed_inspection = True
+        self.passed_inspection = passed
